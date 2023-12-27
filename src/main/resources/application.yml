@@ -6,3 +6,15 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: employee
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: manojmahanta1998@gmail.com
+    password: wbowkrpegjndezax
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
