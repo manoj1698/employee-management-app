@@ -4,7 +4,7 @@
 
 1. **Clone the Repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/manoj1698/employee-management-app.git
 
 2.Navigate to the Project Directory:
     cd your-spring-boot-project
