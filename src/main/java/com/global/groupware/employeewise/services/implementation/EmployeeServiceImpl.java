@@ -2,6 +2,7 @@ package com.global.groupware.employeewise.services.implementation;
 
 import com.global.groupware.employeewise.entities.Employee;
 import com.global.groupware.employeewise.repository.EmployeeRepository;
+import com.global.groupware.employeewise.services.EmailServiceImpl;
 import com.global.groupware.employeewise.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,10 +16,19 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private EmailServiceImpl emailService;
 
     @Override
-    public Employee addEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public String addEmployee(Employee employee) {
+        Employee savedEmployee = employeeRepository.save(employee);
+        sendEmailToLevel1Manager(employee);
+        return savedEmployee.getEmployeeId();
+    }
+
+    //// Logic to send email to the level 1 manager
+    private void sendEmailToLevel1Manager(Employee employee) {
+        emailService.sendEmailToLevel1Manager(employee);
     }
 
     @Override

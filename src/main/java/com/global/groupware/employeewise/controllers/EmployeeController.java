@@ -17,7 +17,7 @@ public class EmployeeController {
 
     //Add Employee to a Database:
     @PostMapping
-    public ResponseEntity<Employee> addEmployee(@Valid @RequestBody Employee employee) {
+    public ResponseEntity<String> addEmployee(@Valid @RequestBody Employee employee) {
         return ResponseEntity.ok(employeeService.addEmployee(employee));
     }
 

@@ -5,7 +5,7 @@ import com.global.groupware.employeewise.entities.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    Employee addEmployee(Employee employee);
+    String addEmployee(Employee employee);
 
     List<Employee> getAllEmployees(int page, int pageSize, String sortBy);
 
